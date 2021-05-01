@@ -5,13 +5,13 @@ import by.epamtc.essence.Airplane;
 
 import java.util.Comparator;
 
-public class SortByFuel implements Comparator<Airplane> {
+public class SortByFuelComparator implements Comparator<Airplane> {
     @Override
     public int compare(Airplane o1, Airplane o2) {
-        return value(o1) - value(o2);
+        return fuel(o1) - fuel(o2);
     }
 
-    private int value(Airplane airplane) {
+    private int fuel(Airplane airplane) {
         return airplane.getFuel();
     }
 
