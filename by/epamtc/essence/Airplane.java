@@ -29,7 +29,7 @@ public class Airplane extends Airline {
         return company;
     }
 
-    protected void setCompany(String company){
+    void setCompany(String company){
         this.company = company;
     }
 
@@ -88,7 +88,7 @@ public class Airplane extends Airline {
     @Override
     public String toString() {
         return " Airplane {" +
-                "name = '" + name + '\'' +
+                "name = " + name  +
                 ", company = " + company +
                 ", fuel = " + fuel +
                 ", liftingCapacity = " + liftingCapacity +

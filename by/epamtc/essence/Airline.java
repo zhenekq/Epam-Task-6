@@ -7,11 +7,11 @@ import java.util.Objects;
 
 public class Airline {
 
-    final int DEFAULT_AMOUNT_OF_AIRPLANES = 100;
+    final int DEFAULT_AMOUNT_OF_AIRPLANES = 3;
     final String DEFAULT_NAME_OF_AIRLINE = "Tiny Airlines";
 
     private String name;
-    private ArrayList<Airplane> airline = new ArrayList<>();
+    private ArrayList<Airplane> airline = new ArrayList<>(DEFAULT_AMOUNT_OF_AIRPLANES);
     private int capacity;
 
     public Airline(String name) {
@@ -19,13 +19,14 @@ public class Airline {
         capacity = DEFAULT_AMOUNT_OF_AIRPLANES;
     }
 
-    public Airline(){
+    public Airline() {
         name = DEFAULT_NAME_OF_AIRLINE;
         capacity = DEFAULT_AMOUNT_OF_AIRPLANES;
+        airline = new ArrayList<>(capacity);
     }
 
     public Airline(String name, ArrayList<Airplane> airline) {
-        if(airline == null){
+        if (airline == null) {
             //exception
         }
         this.name = name;
@@ -33,28 +34,28 @@ public class Airline {
         capacity = DEFAULT_AMOUNT_OF_AIRPLANES;
     }
 
-    public Airline(String name, ArrayList<Airplane> airline, int capacity) throws WrongCapacityException{
+    public Airline(String name, ArrayList<Airplane> airline, int capacity) throws WrongCapacityException {
         this.name = name;
         this.airline = airline;
-        if(capacity > 0) {
+        if (capacity >= 0) {
             this.capacity = capacity;
-        }else{
+        } else {
             throw new WrongCapacityException("Airline " + name + " Can't have capacity lower than zero!!!");
         }
     }
 
-    public void addAirplane(Airplane... airplane){
-        for(int i=0;i<airplane.length;i++){
+    public void addAirplane(Airplane... airplane) {
+        for (int i = 0; i < airplane.length; i++) {
             airline.add(airplane[i]);
             airplane[i].setCompany(getName());
         }
     }
 
-    public void removeAirplane(Airplane airplane){
+    public void removeAirplane(Airplane airplane) {
         airline.remove(airplane);
     }
 
-    public Airline getAir(){
+    public Airline getAir() {
         return this;
     }
 
