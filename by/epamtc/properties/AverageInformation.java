@@ -1,4 +1,4 @@
-package by.epamtc.essence.properties;
+package by.epamtc.properties;
 
 import by.epamtc.essence.Airline;
 import by.epamtc.essence.Airplane;

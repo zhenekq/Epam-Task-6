@@ -7,21 +7,18 @@ import java.util.Objects;
 
 public class Airline {
 
-    final int DEFAULT_AMOUNT_OF_AIRPLANES = 3;
     final String DEFAULT_NAME_OF_AIRLINE = "Tiny Airlines";
 
-    private String name;
-    private ArrayList<Airplane> airline = new ArrayList<>(DEFAULT_AMOUNT_OF_AIRPLANES);
-    private int capacity;
+    private String name = DEFAULT_NAME_OF_AIRLINE;
+    private ArrayList<Airplane> airline = new ArrayList<>();
+    private int capacity = airline.size();
 
     public Airline(String name) {
         this.name = name;
-        capacity = DEFAULT_AMOUNT_OF_AIRPLANES;
     }
 
     public Airline() {
         name = DEFAULT_NAME_OF_AIRLINE;
-        capacity = DEFAULT_AMOUNT_OF_AIRPLANES;
         airline = new ArrayList<>(capacity);
     }
 
@@ -31,14 +28,14 @@ public class Airline {
         }
         this.name = name;
         this.airline = airline;
-        capacity = DEFAULT_AMOUNT_OF_AIRPLANES;
+        capacity = airline.size();
     }
 
     public Airline(String name, ArrayList<Airplane> airline, int capacity) throws WrongCapacityException {
         this.name = name;
         this.airline = airline;
         if (capacity >= 0) {
-            this.capacity = capacity;
+            this.capacity = airline.size();
         } else {
             throw new WrongCapacityException("Airline " + name + " Can't have capacity lower than zero!!!");
         }
@@ -49,14 +46,12 @@ public class Airline {
             airline.add(airplane[i]);
             airplane[i].setCompany(getName());
         }
+        capacity++;
     }
 
     public void removeAirplane(Airplane airplane) {
         airline.remove(airplane);
-    }
-
-    public Airline getAir() {
-        return this;
+        capacity--;
     }
 
     public String getName() {

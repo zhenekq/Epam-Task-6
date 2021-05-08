@@ -2,18 +2,15 @@ package by.epamtc.runner;
 
 import by.epamtc.essence.Airline;
 import by.epamtc.essence.Airplane;
-import by.epamtc.essence.file.DAO;
-import by.epamtc.essence.file.ReadFromFile;
-import by.epamtc.essence.file.WriteInFile;
-import by.epamtc.essence.properties.AverageInformation;
-import by.epamtc.essence.properties.FuelComparator;
-import by.epamtc.essence.properties.LiftingComparator;
-import by.epamtc.essence.util.Sort;
-import by.epamtc.essence.util.SortByLiftingCapacityComparator;
+import by.epamtc.essence.PassengerPlane;
+import by.epamtc.essence.WarPlane;
+import by.epamtc.file.DAO;
+import by.epamtc.file.ReadFromFile;
+import by.epamtc.file.WriteInFile;
+import by.epamtc.util.Sort;
+import by.epamtc.util.SortByFuelComparator;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 public class Main {
@@ -25,5 +22,21 @@ public class Main {
         Airline airline = new Airline("Arabian Airlines");
         read.perform(airline);
         write.perform(airline);
+
+        WarPlane warPlane = new WarPlane();
+        warPlane.setLiftingCapacity(43);
+        warPlane.setCompany("LOL");
+        warPlane.setName("KILLER");
+        warPlane.setFuel(2);
+        System.out.println(warPlane);
+        Airline airline1 = new Airline();
+        airline1.addAirplane(warPlane);
+        airline1.addAirplane(new Airplane());
+        PassengerPlane passengerPlane = new PassengerPlane();
+        passengerPlane.setFuel(244);
+        airline1.addAirplane(passengerPlane);
+        System.out.println(airline1);
+        Sort.sort(airline1, true, new SortByFuelComparator());
+        System.out.println(airline1);
     }
 }

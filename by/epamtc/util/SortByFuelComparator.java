@@ -1,6 +1,5 @@
-package by.epamtc.essence.util;
+package by.epamtc.util;
 
-import by.epamtc.essence.Airline;
 import by.epamtc.essence.Airplane;
 
 import java.util.Comparator;

@@ -1,4 +1,4 @@
-package by.epamtc.essence.util;
+package by.epamtc.util;
 
 import by.epamtc.essence.Airplane;
 

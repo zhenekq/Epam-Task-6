@@ -1,13 +1,12 @@
-package by.epamtc.essence.file;
+package by.epamtc.file;
 
 import by.epamtc.essence.Airline;
 import by.epamtc.essence.Airplane;
-import by.epamtc.essence.properties.AverageInformation;
-import by.epamtc.essence.properties.FuelComparator;
-import by.epamtc.essence.properties.LiftingComparator;
+import by.epamtc.properties.AverageInformation;
+import by.epamtc.properties.FuelComparator;
+import by.epamtc.properties.LiftingComparator;
 
 import java.io.*;
-import java.util.Comparator;
 
 public class WriteInFile implements DAO {
     private static final String path = "output.txt";
