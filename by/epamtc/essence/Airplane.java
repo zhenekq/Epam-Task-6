@@ -92,6 +92,6 @@ public class Airplane extends Airline {
                 ", company = " + company +
                 ", fuel = " + fuel +
                 ", liftingCapacity = " + liftingCapacity +
-                "}\n\t\t\t";
+                "}\n";
     }
 }
